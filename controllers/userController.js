@@ -62,6 +62,7 @@ export const deleteUser = async (req, res) => {
     const {id} = req.params
     try{
         const userByID = await User.findByIdAndDelete(id)
+        
         if (!userByID){
             return res.status(404).json('Utilisateur introuvable')
         }

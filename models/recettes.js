@@ -9,7 +9,7 @@ const recetteSchema = new Schema({
     category : {
         type : String
     },
-    Pays : {
+    country : {
         type : String
     },
     description : {

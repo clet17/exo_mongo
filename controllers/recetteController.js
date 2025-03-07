@@ -18,11 +18,11 @@ export const getAllRecettes = async (req, res) => {
 export const getRecettesById = async (req, res) => {
     const {id} = req.params
     try{
-        const RecetteByID = await Recette.findById(id).populate('author')
-        if (!RecetteByID){
+        const recetteByID = await Recette.findById(id).populate('author')
+        if (!recetteByID){
             return res.status(404).json('Recette introuvable')
         }
-        return res.status(200).json(RecetteByID)
+        return res.status(200).json(recetteByID)
     }
     catch(err){
         console.log(err)
@@ -45,11 +45,11 @@ export const createRecette = async (req, res) => {
 export const updateRecette = async (req, res) => {
     const {id} = req.params
     try{
-        const RecetteByID = await Recette.findByIdAndUpdate(id, req.body, {new : true})
-        if (!RecetteByID){
+        const recetteByID = await Recette.findByIdAndUpdate(id, req.body, {new : true})
+        if (!recetteByID){
             return res.status(404).json('Recette introuvable')
         }
-        return res.json(RecetteByID)
+        return res.json(recetteByID)
     }
     catch(err){
         console.log(err)
@@ -60,9 +60,9 @@ export const updateRecette = async (req, res) => {
 export const deleteRecette = async (req, res) => {
     const {id} = req.params
     try{
-        const RecetteByID = await Recette.findByIdAndDelete(id)
+        const recetteByID = await Recette.findByIdAndDelete(id)
         
-        if (!RecetteByID){
+        if (!recetteByID){
             return res.status(404).json('Recette introuvable')
         }
         if(deleteRecette){
